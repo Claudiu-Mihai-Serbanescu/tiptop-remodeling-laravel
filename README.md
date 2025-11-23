@@ -70,23 +70,6 @@ Principalele field-uri:
 -   serviciu dorit (select box)
 -   detalii proiect (textarea)
 
-Fragment de cod (Blade):
-
-```blade
-<form class="cm-form" method="POST" action="{{ route('contact.send') }}">
-    @csrf
-    <!-- name, phone, email, service, message -->
-    <button class="btn btn-primary" type="submit">Send Request</button>
-</form>
-Funcționalitatea de trimitere email este realizată prin Laravel Mail, iar mesajele sunt primite instant indiferent de adresa de email introdusă de client.
-
-Formularul include și:
-
-validare server-side
-
-câmp honeypot (website) pentru protecție anti-spam
-
-mesaje de succes/eroare prin session('status')
 
 ## ⚙️ Tehnologii Utilizate
 
