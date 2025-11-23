@@ -1,59 +1,196 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏠 Tip Top Remodeling LLC – Laravel Website
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Professional remodeling company website built with **Laravel**, **Blade** & **Vite**
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🔗 Live Demo
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Website-ul este live aici:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+👉 **https://tiptopremodelingllc.com/**
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 📌 Descriere generală
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Acest proiect reprezintă website-ul oficial al companiei **Tip Top Remodeling LLC**, o firmă de remodelări rezidențiale din SUA.  
+Site-ul este construit cu **Laravel** și oferă o prezentare completă a serviciilor, un portofoliu cu lucrări „before & after”, testimoniale reale și un formular de contact care trimite cererile direct pe email.
 
-## Laravel Sponsors
+Structura este gândită ca un site de prezentare modern, optimizat pentru:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+-   generare de lead-uri (formulare, CTA-uri clare)
+-   încredere (testimoniale și recenzii Google)
+-   SEO (pagini dedicate pentru servicii)
+-   UX pe desktop și mobil
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🔧 Funcționalități principale
 
-## Contributing
+### 1. Homepage & Hero Section
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+-   mesaj clar de brand și poziționare
+-   butoane de call-to-action („Schedule a Consultation”, „Contact Us”)
+-   acces rapid la servicii și testimoniale
 
-## Code of Conduct
+### 2. Pagină de Servicii
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+-   listă detaliată a serviciilor: kitchen/bathroom remodeling, basements, flooring, painting, roofing, patios etc.
+-   text optimizat pentru SEO (keywords specifice remodeling)
+-   link-uri către secțiuni și contact
 
-## Security Vulnerabilities
+### 3. Testimoniale (Google Business Reviews)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+-   secțiune de testimoniale cu fotografii și nume reale
+-   conținut preluat din profilul de Google Business / Facebook Reviews
+-   prezentare orientată pe încredere și reputație
 
-## License
+### 4. Our Gallery – Before & After
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+-   portofoliu cu filtre (All, Kitchens, Bathrooms, Flooring, Additions, Painting, Decks, Siding-Stucco, Windows & Doors)
+-   prezentare „Before & After” pentru anumite lucrări
+-   imagini mari, optimizate pentru impact vizual
+
+### 5. Contact & Map
+
+-   embed Google Maps cu locația companiei
+-   date de contact vizibile: adresă, email, telefon
+-   formular de contact care trimite cererile pe email
+
+### 6. Formular de contact cu trimitere pe email
+
+Formularul folosește o rută Laravel (`route('contact.send')`) și trimite datele completate către adresa de email a clientului.
+
+Principalele field-uri:
+
+-   nume complet
+-   telefon
+-   email
+-   serviciu dorit (select box)
+-   detalii proiect (textarea)
+
+Fragment de cod (Blade):
+
+```blade
+<form class="cm-form" method="POST" action="{{ route('contact.send') }}">
+    @csrf
+    <!-- name, phone, email, service, message -->
+    <button class="btn btn-primary" type="submit">Send Request</button>
+</form>
+Funcționalitatea de trimitere email este realizată prin Laravel Mail, iar mesajele sunt primite instant indiferent de adresa de email introdusă de client.
+
+Formularul include și:
+
+validare server-side
+
+câmp honeypot (website) pentru protecție anti-spam
+
+mesaje de succes/eroare prin session('status')
+
+## ⚙️ Tehnologii Utilizate
+
+- **Laravel 10+**
+- **PHP 8+**
+- **Blade Templates** pentru structurarea interfeței
+- **Vite** pentru bundling CSS & JS
+- **TailwindCSS** + CSS personalizat pentru layout și componente
+- **JavaScript (ES6)** pentru interacțiuni și animații
+- **Laravel Mail** pentru trimiterea emailurilor din formularul de contact
+- **Google Maps Embed** pentru afișarea locației firmei
+- **Google Business / Facebook Reviews** pentru integrarea testimonialelor reale
+
+## 📁 Structura Proiectului (Overview)
+
+app/            → logica de business, controllere, mail, model
+bootstrap/
+config/
+database/
+public/         → assets publice (imagini, CSS/JS procesate)
+resources/
+  ├── views/    → Blade templates (home, services, gallery, contact etc.)
+  ├── css/      → fișiere CSS sursă
+  └── js/       → fișiere JS sursă
+routes/
+  ├── web.php   → rute publice (home, services, gallery, contact, etc.)
+storage/
+tests/
+vite.config.js
+composer.json
+package.json
+
+
+
+
+## 🖼️ Screenshots
+
+Mai jos sunt câteva capturi reprezentative din site-ul Tip Top Remodeling LLC, prezentând principalele secțiuni și funcționalități.
+Fișierele sunt stocate în folderul `screenshots/`.
+
+---
+
+### 🏠 Homepage Hero (Desktop)
+
+![Homepage Hero](./screenshots/home-hero-desktop.png)
+
+Secțiunea principală a homepage-ului, cu mesaj clar de brand, CTA-uri vizibile și acces rapid către paginile importante.
+Structură construită pentru impact vizual și conversie (lead generation).
+
+---
+
+### 🛠 Services Section
+
+![Services Section](./screenshots/services-section.png)
+
+Listă completă a serviciilor oferite de companie: kitchen & bathroom remodeling, basements, flooring, painting, roofing, siding, patios etc.
+Conținut optimizat SEO, cu structură clară și navigare intuitivă.
+
+---
+
+### 🔄 Before & After Gallery
+
+![Before & After](./screenshots/before-after-gallery.png)
+
+Portofoliu vizual cu transformări înainte/după, prezentat prin carduri full-width și filtre dinamice (Kitchens, Bathrooms, Flooring, Painting, Additions etc.).
+Secțiune orientată către încredere și vizualizarea calității lucrărilor.
+
+---
+
+### ⭐ Testimonials Section
+
+![Testimonials](./screenshots/testimonials-section.png)
+
+Secțiune cu recenzii reale preluate de pe Google Business / Facebook Reviews, stilizate curat și profesionist.
+Ajută la consolidarea credibilității și creșterea ratei de conversie.
+
+---
+
+### 📍 Contact & Map
+
+![Contact Section](./screenshots/contact-section.png)
+
+Formular de contact complet funcțional, integrat cu Laravel Mail — mesajele sunt trimise direct către client.
+Include Google Maps Embed, validare server-side, mesaje de eroare/succes și honeypot anti-spam.
+
+---
+
+### 📱 Homepage – Mobile Version
+
+![Mobile Version](./screenshots/home-mobile.png)
+
+Versiunea mobile a homepage-ului, optimizată cu un layout fluid și un meniu burger pentru navigare ușoară pe ecrane mici.
+Întregul site este construit mobile-first, cu breakpoints profesionale.
+
+## 👤 Rol Personal în Proiect
+
+În cadrul acestui proiect am contribuit la:
+
+- designul și implementarea completă a interfeței folosind **Blade** și **CSS personalizat**
+- structurarea și optimizarea paginilor pentru **SEO**, incluzând pagini dedicate fiecărui serviciu
+- dezvoltarea secțiunii **Before & After** din galerie/portofoliu
+- integrarea și stilizarea testimonialelor reale din **Google Business / Facebook Reviews**
+- implementarea formularului de contact și integrarea acestuia cu **Laravel Mail** pentru trimiterea automată a cererilor
+- realizarea layout-ului **responsive** pentru desktop, tabletă și mobil
+- configurarea și **deploy-ul** proiectului pe serverul de producție
+
+```
